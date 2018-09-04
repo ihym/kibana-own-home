@@ -9,7 +9,7 @@ export default function (server, request, remoteUser, callback) {
   let groups = [];
 
   if (config.get('own_home.local.enabled')) {
-    Array.prototype.push.apply(groups, getLocalGroups(server));
+    Array.prototype.push.apply(groups, getLocalGroups(server, remoteUser));
   }
 
   if (config.get('own_home.ldap.enabled')) {

@@ -47,7 +47,11 @@ export default function (kibana) {
         }).default(),
         local: object({
           enabled: boolean().default(true),
-          groups: array().items().single().default(['public', 'sandbox'])
+          groups: array().items().single().default(['public', 'sandbox']),
+          admin: object({
+            groups: array().items().single().default([]),
+            users: array().items().single().default([])
+          })
         }).default(),
         ldap: object({
           enabled: Joi.boolean().default(false),
